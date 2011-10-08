@@ -36,6 +36,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="alerts" class="container_12">
+		<div id="flash" class="grid_12">
+			<% flash.each do |key, value| %>
+			    <div class="alert-message block-message <%= key == :notice ? 'success' : key %> fade in" data-alert="alert">
+						<a href="#" class="close">x</a>
+						<%= value %>
+					</div>
+			<% end %>
+		</div>
+	</div>
 	<div id="page" class="container_12">
 		<%= yield %>
 	</div>
