@@ -23,6 +23,7 @@ describe User do
       
       @user.valid?.should == false
       @other_user.valid?.should == false
+      @fabricated.valid?.should == false
     end
     
     it "must contain a login name" do
