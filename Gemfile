@@ -52,6 +52,8 @@ group(:development, :test) do
   gem 'rspec-rails', '~> 2.6.1'
   gem 'mocha',       '~> 0.10.0'
   gem 'timecop',     '~> 0.3.5'
+  
+  gem 'factory_girl_rails'
 
   # To get a detailed overview about what queries get issued and how long they take
   # have a look at rails_metrics. Once you bundled it, you can run
