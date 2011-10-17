@@ -4,10 +4,10 @@ class Company
 
   property :id, Serial
   property :name, String, :length => 200, :required => true, :index => true
-  property :address, String, :length => 200
-  property :city, String, :length => 200, :required => true, :index => true
+  # property :address, String, :length => 200
+  # property :city, String, :length => 200, :required => true, :index => true
   
-  validates_presence_of :name, :city
+  validates_presence_of :name
   
   def to_param
     "#{id}-#{url_name(name)}".downcase
