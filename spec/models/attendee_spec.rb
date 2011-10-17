@@ -70,6 +70,25 @@ describe Attendee do
       @homer.valid?.should == true
       @barney.valid?.should == false
       @moe.valid?.should == false
-    end    
+    end
+    
+    it "may have a mailing address" do
+      @homer = Attendee.create(
+        :first_name => 'Homer', :last_name => 'Simpson', :email => 'homer@springfield.com',
+        :phone => '9091112222', :address => '247 Evergreen Terrace'
+      )
+      @homer.valid?.should == true
+      @homer.address.should == '247 Evergreen Terrace'
+    end
+    
+    it "may have a city to live" do
+      @homer = Attendee.create(
+        :first_name => 'Homer', :last_name => 'Simpson', :email => 'homer@springfield.com',
+        :phone => '9091112222', :city => 'Springfield'
+      )
+      @homer.valid?.should == true
+      @homer.city.should == 'Springfield'
+    end
   end
+  
 end

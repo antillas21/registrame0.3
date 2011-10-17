@@ -7,6 +7,8 @@ class Attendee
   property :last_name, String, :required => true, :index => [:full_name]
   property :email, String, :required => true, :index => true
   property :phone, String, :required => false
+  property :address, String, :required => false
+  property :city, String, :required => false
   
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
