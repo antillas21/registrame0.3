@@ -17,6 +17,9 @@ class Attendee
   validates_uniqueness_of :email
   validates_numericality_of :phone, :allow_nil => true
   
+  belongs_to :state, :required => false
+  belongs_to :country, :required => false
+  
   def full_name
     [first_name, last_name].join(' ')
   end

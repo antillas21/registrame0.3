@@ -91,4 +91,48 @@ describe Attendee do
     end
   end
   
+  context "States" do
+    before do
+      @oh = State.create(:name => 'Ohio')
+      @homer = Attendee.create(
+        :first_name => 'Homer', :last_name => 'Simpson', :email => 'homer@springfield.com',
+        :phone => '9091112222', :city => 'Springfield', :state => @oh
+      )
+      @moe = Attendee.create(
+        :first_name => 'Moe', :last_name => 'Zyslack', :email => 'moe@springfield.com',
+        :phone => '9091112222', :city => 'Springfield'
+      )
+    end
+    
+    it "may belong to a state" do
+      @homer.state.present?.should == true
+      @homer.state.name.should == 'Ohio'
+      
+      @moe.state.present?.should == false
+      @moe.state.should == nil
+    end
+  end
+  
+  context "Countries" do
+    before do
+      @us = Country.create(:name => 'United States')
+      @homer = Attendee.create(
+        :first_name => 'Homer', :last_name => 'Simpson', :email => 'homer@springfield.com',
+        :phone => '9091112222', :city => 'Springfield', :country => @us
+      )
+      @moe = Attendee.create(
+        :first_name => 'Moe', :last_name => 'Zyslack', :email => 'moe@springfield.com',
+        :phone => '9091112222', :city => 'Springfield'
+      )
+    end
+    
+    it "may belong to a country" do
+      @homer.country.present?.should == true
+      @homer.country.name.should == 'United States'
+      
+      @moe.country.present?.should == false
+      @moe.country.should == nil
+    end
+  end
+  
 end
