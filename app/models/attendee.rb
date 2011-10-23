@@ -21,6 +21,8 @@ class Attendee
   belongs_to :country, :required => false
   belongs_to :attendee_type, :required => false
   
+  has n, :interests, :through => Resource
+  
   def full_name
     [first_name, last_name].join(' ')
   end

@@ -154,4 +154,27 @@ describe Attendee do
       end
   end
   
+  context "Relationships" do
+    before do
+      @meet = Interest.create(:name => 'Meet')
+      @greet = Interest.create(:name => 'Greet')
+    end
+    
+    it "may have 0 or several interests" do
+      @homer = Attendee.create(
+        :first_name => 'Homer', :last_name => 'Simpson', :email => 'homer@springfield.com',
+        :phone => '9091112222', :city => 'Springfield', :interests => [@meet, @greet]
+      )
+      
+      @jfk = Attendee.create(
+        :first_name => 'John F.', :last_name => 'Kennedy', :email => 'homer@springfield.com',
+        :phone => '9091112222', :city => 'Springfield'
+      )
+      
+      @homer.interests.should include(@meet)
+      @homer.interests.should include(@greet)
+      @jfk.interests.count.should == 0
+    end
+  end
+  
 end
