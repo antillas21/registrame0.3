@@ -112,7 +112,7 @@ describe Attendee do
       @moe.state.should == nil
     end
   end
-  
+    
   context "Countries" do
     before do
       @us = Country.create(:name => 'United States')
@@ -132,6 +132,25 @@ describe Attendee do
       
       @moe.country.present?.should == false
       @moe.country.should == nil
+    end
+  end
+  
+  context "#formatted output" do
+    before do
+      @homer = Attendee.create(
+        :first_name => 'Homer', :last_name => 'Simpson', :email => 'homer@springfield.com',
+        :phone => '9091112222', :city => 'Springfield'
+      )
+      
+      @jfk = Attendee.create(
+        :first_name => 'John F.', :last_name => 'Kennedy', :email => 'homer@springfield.com',
+        :phone => '9091112222', :city => 'Springfield'
+      )
+      
+      it "has a nice formatted url in the app" do
+        @homer.to_param.should == "#{@homer.id}-homer-simpson"
+        @jfk.to_param.should == "#{jfk.id}-john-f-kennedy"
+      end
     end
   end
   
