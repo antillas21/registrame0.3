@@ -19,6 +19,7 @@ class Attendee
   
   belongs_to :state, :required => false
   belongs_to :country, :required => false
+  belongs_to :attendee_type, :required => false
   
   def full_name
     [first_name, last_name].join(' ')
