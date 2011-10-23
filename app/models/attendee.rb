@@ -24,4 +24,12 @@ class Attendee
     [first_name, last_name].join(' ')
   end
   
+  def to_param
+    "#{id}-#{url_name(first_name)}-#{url_name(last_name)}".downcase
+  end
+  
+  def url_name(field)
+    field.gsub(/[^a-z0-9]+/i, '-').gsub(/-+$/i, '')
+  end
+  
 end

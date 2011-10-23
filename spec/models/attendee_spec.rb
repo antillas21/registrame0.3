@@ -146,12 +146,12 @@ describe Attendee do
         :first_name => 'John F.', :last_name => 'Kennedy', :email => 'homer@springfield.com',
         :phone => '9091112222', :city => 'Springfield'
       )
+    end
       
       it "has a nice formatted url in the app" do
         @homer.to_param.should == "#{@homer.id}-homer-simpson"
-        @jfk.to_param.should == "#{jfk.id}-john-f-kennedy"
+        @jfk.to_param.should == "#{@jfk.id}-john-f-kennedy"
       end
-    end
   end
   
 end
