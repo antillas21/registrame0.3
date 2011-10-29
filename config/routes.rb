@@ -12,6 +12,7 @@ Registrame::Application.routes.draw do
     }
 
   resources :interests
+  resources :companies
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

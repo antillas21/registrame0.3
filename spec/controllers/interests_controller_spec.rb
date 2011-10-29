@@ -76,4 +76,63 @@ describe InterestsController do
       end
     end
   end
+
+  describe "PUT update" do
+    describe "with valid params" do
+      it "updates the requested interest" do
+        interest = Interest.create! valid_attributes
+        # Assuming there are no other companies in the database, this
+        # specifies that the Company created on the previous line
+        # receives the :update_attributes message with whatever params are
+        # submitted in the request.
+        Interest.any_instance.expects(:update).with({'name' => 'New Name'})
+        put :update, :id => interest.id, :interest => {'name' => 'New Name'}
+      end
+
+      it "assigns the requested interest as @interest" do
+        interest = Interest.create! valid_attributes
+        put :update, :id => interest.id, :interest => valid_attributes
+        assigns(:interest).should eq(interest)
+      end
+
+      it "redirects to the interest" do
+        interest = Interest.create! valid_attributes
+        put :update, :id => interest.id, :interest => valid_attributes
+        response.should redirect_to(interests_url)
+      end
+    end
+
+    describe "with invalid params" do
+      it "assigns the interest as @interest" do
+        interest = Interest.create! valid_attributes
+        # Trigger the behavior that occurs when invalid params are submitted
+        Interest.any_instance.stubs(:save).returns(false)
+        put :update, :id => interest.id, :interest => {}
+        assigns(:interest).should eq(interest)
+      end
+
+      it "re-renders the 'edit' template" do
+        interest = Interest.create! valid_attributes
+        # Trigger the behavior that occurs when invalid params are submitted
+        Interest.any_instance.stubs(:save).returns(false)
+        put :update, :id => interest.id, :interest => {}
+        response.should render_template("edit")
+      end
+    end
+  end
+
+  describe "DELETE destroy" do
+    it "destroys the requested interest" do
+      interest = Interest.create! valid_attributes
+      expect {
+        delete :destroy, :id => interest.id
+      }.to change(Interest, :count).by(-1)
+    end
+
+    it "redirects to the companies list" do
+      interest = Interest.create! valid_attributes
+      delete :destroy, :id => interest.id
+      response.should redirect_to(interests_url)
+    end
+  end
 end
