@@ -2,10 +2,15 @@ require 'spec_helper'
 
 describe StatesController do
 
-  describe "GET 'index'" do
-    it "should be successful" do
-      get 'index'
-      response.should be_success
+  def valid_attributes
+    {:name => 'California'}
+  end
+
+  describe "GET index" do
+    it "assigns all states as @states" do
+      state = State.create! valid_attributes
+      get :index
+      assigns[:states].should eq([state])
     end
   end
 
