@@ -17,6 +17,7 @@ Registrame::Application.routes.draw do
   resources :interests
   resources :companies
   resources :attendee_types
+  resources :attendees
   resources :labels
 
   # Sample of named route:
