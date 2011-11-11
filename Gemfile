@@ -44,6 +44,10 @@ gem "tzinfo"
 gem 'devise', '> 1.4.6'
 gem 'dm-devise', '~> 1.5.0.beta'
 
+# templating
+gem 'haml-rails', '~> 0.3.4'
+gem 'haml'
+
 group(:development, :test) do
 
   # Uncomment this if you want to use rspec for testing your application
