@@ -1,5 +1,6 @@
 Registrame::Application.routes.draw do
   get "states/index"
+  get "countries/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
