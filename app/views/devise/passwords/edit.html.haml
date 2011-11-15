@@ -4,15 +4,17 @@
   = devise_error_messages!
   = f.hidden_field :reset_password_token
 
-  %div
+  %div.clearfix
     = f.label :password, "New password"
-    = f.password_field :password
+    %div.input
+      = f.password_field :password
 
-  %div
+  %div.clearfix
     = f.label :password_confirmation, "Confirm new password"
-    = f.password_field :password_confirmation
+    %div.input
+      = f.password_field :password_confirmation
 
-  %div
-    = f.submit "Change my password"
+  %div.actions
+    = f.submit "Change my password", class: "btn primary"
 
 = render partial: "devise/shared/links"

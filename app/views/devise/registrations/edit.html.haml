@@ -1,31 +1,36 @@
-%h2 Edit = resource_name.to_s.humanize
+%h2 Edit  #{resource_name.to_s.humanize}
 
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
 
-  %div
+  %div.clearfix
     = f.label :login
-    = f.email_field :login
-  %div
+    %div.input
+      = f.email_field :login
+  %div.clearfix
     = f.label :email
-    = f.email_field :email
-  %div
+    %div.input
+      = f.email_field :email
+  %div.clearfix
     = f.label :password
-    %i (leave blank if you don't want to change it)
-    = f.password_field :password
-  %div
+    %div.input
+      = f.password_field :password
+      %span.help-block (leave blank if you don't want to change it)
+  %div.clearfix
     = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  %div
+    %div.input
+      = f.password_field :password_confirmation
+  %div.clearfix
     = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    = f.password_field :current_password
-  %div
-    = f.submit "Update"
+    %div.input
+      = f.password_field :current_password
+      %span.help-block (we need your current password to confirm your changes)
+  %div.actions
+    = f.submit "Update", class: "btn primary"
 
-%h3 Cancel my account
-%p
-  Unhappy?
-  = link_to "Cancel my account", registration_path(resource_name), confirm: "Are you sure?", method: :delete
-
-= link_to "Back", :back
+%div.well
+  %h3 Cancel my account
+  %p
+    Unhappy?
+    = link_to "Cancel my account", registration_path(resource_name), confirm: "Are you sure?", method: :delete, class: "btn danger"
+    = link_to "Back", :back, class: "btn"

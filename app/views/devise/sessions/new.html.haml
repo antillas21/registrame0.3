@@ -1,20 +1,21 @@
-%h2 Sign in
+%h2 Login
 
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %div
+  %div.clearfix
     = f.label :email
-    %br/
-    = f.email_field :email
-  %div
+    %div.input
+      = f.email_field :email
+  %div.clearfix
     = f.label :password
-    %br/
-    = f.password_field :password
+    %div.input
+      = f.password_field :password
   - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
+    %div.clearfix
       = f.label :remember_me
-  %div
-    = f.submit "Sign in"
+      %div.input
+        = f.check_box :remember_me
+  %div.actions
+    = f.submit "Sign in", class: "btn primary"
 
 = render partial: "devise/shared/links"
 
