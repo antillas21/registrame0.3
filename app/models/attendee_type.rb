@@ -10,4 +10,12 @@ class AttendeeType
   
   has n, :attendees
 
+  def to_param
+    "#{id}-#{url_name(name)}".downcase
+  end
+
+  def url_name(field)
+    field.gsub(/[^a-z0-9]+/i, '-').gsub(/-+$/i, '')
+  end
+
 end

@@ -44,6 +44,6 @@ class AttendeeTypesController < ApplicationController
 
   private
   def find_attendee_type
-    @attendee_type = AttendeeType.get(params[:id])
+    @attendee_type = AttendeeType.get(params[:id].to_i)
   end
 end

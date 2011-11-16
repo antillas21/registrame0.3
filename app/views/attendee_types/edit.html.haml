@@ -1,0 +1,9 @@
+%div#edit-form.grid_12
+  = form_for @attendee_type do |f|
+    %fieldset
+      %legend Edit Attendee type
+      %div.clearfix
+        = f.label :name
+        %div.input
+          = f.text_field :name
+          = f.submit "Update", class: "btn primary"
