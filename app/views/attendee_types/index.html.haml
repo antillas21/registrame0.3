@@ -1,4 +1,4 @@
-%div#add-form
+%div#add-form.grid_12
   = form_for(@attendee_type, remote: true) do |f|
     %fieldset
       %legend Add new attendee type
@@ -8,6 +8,6 @@
           = f.text_field :name
           = f.submit "Add type", class: "btn primary"
 
-%h2.page-header Attendee types
+%h2.page-header.grid_12 Attendee types
 %div#attendee-types
   = render @attendee_types
