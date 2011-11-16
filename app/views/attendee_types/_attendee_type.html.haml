@@ -1,0 +1,5 @@
+.row.grid_12
+  .grid_4
+    = attendee_type.name
+  .grid_4
+    = link_to "Delete", attendee_type_path(attendee_type), method: :delete, confirm: 'Are you sure you want to delete this?', class: "btn danger"

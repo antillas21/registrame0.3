@@ -1,0 +1,3 @@
+$('#attendee-types').html("<%= escape_javascript(render @attendee_types)%>");
+$('div.row:last').effect('highlight', {}, 2000);
+$('#attendee_type_name').val("").focus();

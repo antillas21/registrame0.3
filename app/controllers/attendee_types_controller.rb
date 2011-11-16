@@ -1,7 +1,11 @@
 class AttendeeTypesController < ApplicationController
+  respond_to :html, :js
+
   before_filter :find_attendee_type, only: [:show, :edit, :update, :destroy]
+  
   def index
     @attendee_types = AttendeeType.all
+    @attendee_type = AttendeeType.new
   end
 
   def show

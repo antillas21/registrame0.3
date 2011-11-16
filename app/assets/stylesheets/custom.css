@@ -1,3 +1,9 @@
 body {
   padding-top: 50px;
 }
+
+.topbar-wrapper, .topbar { background: #000; }
+.row {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}

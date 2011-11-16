@@ -1,0 +1,13 @@
+%div#add-form
+  = form_for(@attendee_type, remote: true) do |f|
+    %fieldset
+      %legend Add new attendee type
+      %div.clearfix
+        = f.label :name
+        %div.input
+          = f.text_field :name
+          = f.submit "Add type", class: "btn primary"
+
+%h2.page-header Attendee types
+%div#attendee-types
+  = render @attendee_types
