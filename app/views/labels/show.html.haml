@@ -1,0 +1,18 @@
+%div.grid_12
+  %h2= @label.name
+  .grid_6.alpha
+    %div#label-properties
+      %p Width: #{@label.width}
+      %p Height: #{@label.height}
+      %p Font size: #{@label.font_size}
+  .grid_6.omega
+    %p
+      %strong Margins (expressed in inches)
+    %p Top: #{@label.top}
+    %p Left: #{@label.left}
+    %p Right: #{@label.right}
+    %p Bottom: #{@label.bottom}
+%div.clear
+%div.grid_12
+  .actions
+    = link_to "Edit properties", edit_label_path(@label), class: "btn primary"

@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Create basic Label based on DYMO 2.125" x 4"
+
+Label.create(name: 'DYMO Standard', width: 4, height: 2.125)

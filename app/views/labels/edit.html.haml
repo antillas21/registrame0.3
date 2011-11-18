@@ -1,0 +1,52 @@
+%h2 Edit Namebadge
+
+%div#add-form.grid_12
+  = form_for @label do |f|
+    %div.grid_6.alpha
+      %fieldset
+        %legend Properties
+        %div.clearfix
+          = f.label :name
+          %div.input
+            = f.text_field :name
+        %div.clearfix
+          = f.label :width
+          %div.input
+            = f.text_field :width
+            %span.help-block Expressed in inches, like 1.25
+        %div.clearfix
+          = f.label :height
+          %div.input
+            = f.text_field :height
+            %span.help-block Expressed in inches, like 1.25
+        %div.clearfix
+          = f.label :font_size
+          %div.input
+            = f.text_field :font_size
+            %span.help-block Expressed in points
+    %div.grid_6.omega
+      %fieldset
+        %legend Margins
+        %div.clearfix
+          = f.label :left
+          %div.input
+            = f.text_field :left
+            %span.help-block Expressed in inches, like 1.25
+        %div.clearfix
+          = f.label :right
+          %div.input
+            = f.text_field :right
+            %span.help-block Expressed in inches, like 1.25
+        %div.clearfix
+          = f.label :top
+          %div.input
+            = f.text_field :top
+            %span.help-block Expressed in inches, like 1.25
+        %div.clearfix
+          = f.label :bottom
+          %div.input
+            = f.text_field :bottom
+            %span.help-block Expressed in inches, like 1.25
+    %div.clear
+    .actions
+      = f.submit "Update", class: "btn primary"

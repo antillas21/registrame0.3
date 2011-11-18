@@ -26,7 +26,7 @@ class LabelsController < ApplicationController
 
   def update
     if @label.update(params[:label])
-      redirect_to labels_path, notice: 'Label successfully updated.'
+      redirect_to @label, notice: 'Label successfully updated.'
     else
       render :edit, error: 'Please correct any errors present.'
     end
@@ -39,6 +39,6 @@ class LabelsController < ApplicationController
 
   private
   def get_label
-    @label = Label.get(params[:id])
+    @label = Label.get(params[:id].to_i)
   end
 end
