@@ -56,10 +56,10 @@ describe LabelsController do
         assigns(:label).should eq(label)
       end
 
-      it "redirects to the labels path" do
+      it "redirects to the @label" do
         label = Label.create! valid_attributes
         put :update, :id => label.id, :label => valid_attributes
-        response.should redirect_to(labels_path)
+        response.should redirect_to(label)
       end
     end
 
