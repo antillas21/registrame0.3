@@ -27,18 +27,18 @@ describe PreferencesController do
       it "updates the requested preference" do
         preferences = Preference.create! 
         Preference.any_instance.expects(:update).with({ 'create_qrcode' => true})
-        put :update, id: preferences.id, preferences: { create_qrcode: true } 
+        put :update, id: preferences.id, preference: { create_qrcode: true } 
       end
 
       it "assigns the requested preference as @preference" do
         preferences = Preference.create! 
-        put :update, :id => preferences.id, :preferences => valid_attributes
+        put :update, :id => preferences.id, :preference => valid_attributes
         assigns(:preferences).should eq(preferences)
       end
 
       it "redirects to the preference" do
         preferences = Preference.create! 
-        put :update, :id => preferences.id, :preferences => valid_attributes
+        put :update, :id => preferences.id, :preference => valid_attributes
         response.should redirect_to(preferences)
       end
     end

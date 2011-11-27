@@ -1,0 +1,71 @@
+%h2 Edit Preferences
+
+%div#add-form.grid_12
+  = form_for @preferences do |f|
+    .grid_6.alpha
+      .clearfix
+        = f.label :print_label
+        .input
+          = f.check_box :print_label
+      %h5 Fields to include in Name badge
+      .clearfix
+        = f.label :label_field_fullname, 'Full name'
+        .input
+          = f.check_box :label_field_fullname
+      .clearfix
+        = f.label :label_field_email, 'Email'
+        .input
+          = f.check_box :label_field_email
+      .clearfix
+        = f.label :label_field_phone, 'Phone'
+        .input
+          = f.check_box :label_field_phone
+      .clearfix
+        = f.label :label_field_company, 'Company'
+        .input
+          = f.check_box :label_field_company
+      .clearfix
+        = f.label :label_field_address, 'Address'
+        .input
+          = f.check_box :label_field_address
+      .clearfix
+        = f.label :label_field_city, 'City'
+        .input
+          = f.check_box :label_field_city
+      .clearfix
+        = f.label :label_field_attendee_type, 'Attendee type'
+        .input
+          = f.check_box :label_field_attendee_type
+    .grid_6.omega
+      .clearfix
+        = f.label :create_qrcode
+        .input
+          = f.check_box :create_qrcode
+      %h5 Fields to include in Name badge
+      .clearfix
+        = f.label :qrcode_field_fullname, 'Full name'
+        .input
+          = f.check_box :qrcode_field_fullname
+      .clearfix
+        = f.label :qrcode_field_email, 'Email'
+        .input
+          = f.check_box :qrcode_field_email
+      .clearfix
+        = f.label :qrcode_field_phone, 'Phone'
+        .input
+          = f.check_box :qrcode_field_phone
+      .clearfix
+        = f.label :qrcode_field_company, 'Company'
+        .input
+          = f.check_box :qrcode_field_company
+      .clearfix
+        = f.label :qrcode_field_address, 'Address'
+        .input
+          = f.check_box :qrcode_field_address
+      .clearfix
+        = f.label :qrcode_field_city, 'City'
+        .input
+          = f.check_box :qrcode_field_city
+    .clear
+    .actions
+      = f.submit 'Update preferences', class: 'btn primary'

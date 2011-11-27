@@ -1,0 +1,104 @@
+%div.grid_12
+  %h2 Preferences
+  .grid_6.alpha
+    %div.label-properties
+      %div
+        .grid_2.alpha
+          %h4 Print Namebadge:
+        .grid_4.omega
+          = label_output(@preferences.print_label)
+      .clear
+      %p
+        %h5 Fields to include in Name badge
+      %div
+        .grid_2.alpha
+          %p Full name:
+        .grid_4.omega
+          = label_output(@preferences.label_field_fullname)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Email:
+        .grid_4.omega
+          = label_output(@preferences.label_field_email)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Phone:
+        .grid_4.omega
+          = label_output(@preferences.label_field_phone)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Company:
+        .grid_4.omega
+          = label_output(@preferences.label_field_company)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Address:
+        .grid_4.omega
+          = label_output(@preferences.label_field_address)
+      .clear
+      %div
+        .grid_2.alpha
+          %p City:
+        .grid_4.omega
+          = label_output(@preferences.label_field_city)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Attendee type:
+        .grid_4.omega
+          = label_output(@preferences.label_field_attendee_type)
+      .clear
+  .grid_6.omega
+    %div.qrcode-properties
+      %div
+        .grid_2.alpha
+          %h4 Create QRCode:
+        .grid_4.omega
+          = label_output(@preferences.create_qrcode)
+      .clear
+      %p
+        %h5 Fields to include in QRCode
+      %div
+        .grid_2.alpha
+          %p Full name:
+        .grid_4.omega
+          = label_output(@preferences.qrcode_field_fullname)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Email:
+        .grid_4.omega
+          = label_output(@preferences.qrcode_field_email)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Phone:
+        .grid_4.omega
+          = label_output(@preferences.qrcode_field_phone)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Company:
+        .grid_4.omega
+          = label_output(@preferences.qrcode_field_company)
+      .clear
+      %div
+        .grid_2.alpha
+          %p Address:
+        .grid_4.omega
+          = label_output(@preferences.qrcode_field_address)
+      .clear
+      %div
+        .grid_2.alpha
+          %p City:
+        .grid_4.omega
+          = label_output(@preferences.qrcode_field_city)
+      .clear
+%div.clear
+%div.grid_12
+  .actions
+    = link_to "Edit preferences", edit_preference_path(@preferences), class: "btn primary"
