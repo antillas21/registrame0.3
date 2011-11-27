@@ -1,0 +1,10 @@
+%div.new-form.grid_12
+  = form_for @company do |f|
+    %fieldset
+      %legend Add Company
+      %div.clearfix
+        = f.label :name
+        %div.input
+          = f.text_field :name
+      .actions
+        = f.submit 'Create Company', class: 'btn primary'

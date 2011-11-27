@@ -9,4 +9,5 @@
 //= require jquery_ujs
 //= require bootstrap-dropdown
 //= require bootstrap-alerts
+//= require jquery.dataTables.min
 //= require_tree .

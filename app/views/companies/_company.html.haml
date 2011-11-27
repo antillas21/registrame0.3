@@ -1,0 +1,9 @@
+%tr
+  %td
+    .grid_6.alpha
+      %h6= link_to company.name, company_path(company)
+      %p
+        = pluralize(company.attendees.count, 'record')
+    .grid_4.omega
+      = link_to "Edit", edit_company_path(company), class: "btn"
+      = link_to "Delete", company_path(company), method: :delete, confirm: 'Are you sure you want to delete this?', class: "btn danger"

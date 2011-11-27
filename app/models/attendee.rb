@@ -20,6 +20,7 @@ class Attendee
   belongs_to :state, :required => false
   belongs_to :country, :required => false
   belongs_to :attendee_type, :required => false
+  belongs_to :company, required: false
   
   has n, :interests, :through => Resource
   

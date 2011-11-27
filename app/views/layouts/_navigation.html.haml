@@ -12,7 +12,7 @@
               %li.divider
               %li= link_to "Preferences", preference_path(Preference.first)
           %li= link_to "Attendees", "#"
-          %li= link_to "Companies", "#"
+          %li= link_to "Companies", companies_path
           %li= link_to "Reports", "#"
       %ul.nav.secondary-nav
         - if current_user

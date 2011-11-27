@@ -9,6 +9,8 @@ class Company
   
   validates_presence_of :name
   
+  has n, :attendees
+
   def to_param
     "#{id}-#{url_name(name)}".downcase
   end
