@@ -48,6 +48,8 @@ gem 'dm-devise', '~> 1.5.0.beta'
 gem 'haml-rails', '~> 0.3.4'
 gem 'haml'
 
+gem 'json_builder', '3.0.2'
+
 group(:development, :test) do
 
   # Uncomment this if you want to use rspec for testing your application

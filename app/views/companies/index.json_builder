@@ -1,0 +1,6 @@
+sEcho 2 
+iTotalRecords @companies.count
+iTotalDisplayRecords @companies.count
+aaData @companies do |company|
+  [company.name]
+end

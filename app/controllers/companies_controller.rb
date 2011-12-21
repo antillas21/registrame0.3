@@ -1,8 +1,11 @@
 class CompaniesController < ApplicationController
+  respond_to :json, :html
 
   before_filter :find_company, only: [:show, :edit, :update, :destroy]
+
   def index
     @companies = Company.all
+    respond_with @companies
   end
 
   def new
