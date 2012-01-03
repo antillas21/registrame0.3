@@ -8,4 +8,7 @@ $(document).ready(function() {
     "sAjaxSource": "/companies.json",
     "sPaginationType": "full_numbers"
   });
+
+  //$('.paginate_button').addClass('btn');
+  //$('span span.paginate_active').addClass('btn primary');
 });
