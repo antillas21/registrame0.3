@@ -4,7 +4,14 @@ class CompaniesController < ApplicationController
   before_filter :find_company, only: [:show, :edit, :update, :destroy]
 
   def index
-    @companies = Company.all
+    @companies = Company.all(
+      #conditions: ['name LIKE ?', "%#{params[:sSearch]}%"], limit: params[:iDisplayLength].to_i,
+      :name.like => "%#{params[:sSearch]}%", limit: params[:iDisplayLength].to_i,
+      offset: params[:iDisplayStart].to_i, order: [:name.asc]
+    )
+    @iTotalRecords = Company.count
+    @iTotalDisplayRecords = Company.all(conditions: ['name LIKE ?', "%#{params[:sSearch]}%"]).count
+    @sEcho = params[:sEcho].to_i
     respond_with @companies
   end
 

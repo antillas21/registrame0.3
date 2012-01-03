@@ -1,12 +1,13 @@
 %div.page-header.grid_12
   %h2
     Companies
-    %small.prefix_4
-      = link_to 'Add Company', new_company_path, class: 'btn primary small'
+    %span.prefix_4
+      = link_to 'Add Company', new_company_path, class: 'btn primary small extrapad'
 %div#companies
   %table.companies-table.zebra-striped
     %thead
       %tr
         %th Name
     %tbody
-      = render @companies
+      %tr
+        %td JSON

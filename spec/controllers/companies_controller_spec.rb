@@ -12,6 +12,10 @@ describe CompaniesController do
       get :index
       assigns(:companies).should eq([company])
     end
+
+    it "renders a JSON file to use on index.html with datatables" do
+      # pending
+    end
   end
 
   describe "GET show" do

@@ -1,6 +1,6 @@
-sEcho 2 
-iTotalRecords @companies.count
-iTotalDisplayRecords @companies.count
+sEcho @sEcho 
+iTotalRecords @iTotalRecords
+iTotalDisplayRecords @TotalDisplayRecords
 aaData @companies do |company|
-  [company.name]
+  ["<a href=\"#{company_url(company)}\">#{company.name}</a>"]
 end

@@ -2,5 +2,9 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function() {
-  $('table.companies-table').dataTable();
+  $('table.companies-table').dataTable({
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "/companies.json"
+  });
 });
