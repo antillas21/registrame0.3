@@ -4,13 +4,13 @@ class CompaniesController < ApplicationController
   before_filter :find_company, only: [:show, :edit, :update, :destroy]
 
   def index
+    direction = params[:sSortDir_0] || "asc"
     @companies = Company.all(
-      #conditions: ['name LIKE ?', "%#{params[:sSearch]}%"], limit: params[:iDisplayLength].to_i,
       :name.like => "%#{params[:sSearch]}%", limit: params[:iDisplayLength].to_i,
-      offset: params[:iDisplayStart].to_i, order: [:name.asc]
+      offset: params[:iDisplayStart].to_i, order: [:name.send(direction)]
     )
     @iTotalRecords = Company.count
-    @iTotalDisplayRecords = Company.all(conditions: ['name LIKE ?', "%#{params[:sSearch]}%"]).count
+    @iTotalDisplayRecords = Company.count(:name.like => "%#{params[:sSearch]}%")
     @sEcho = params[:sEcho].to_i
     respond_with @companies
   end

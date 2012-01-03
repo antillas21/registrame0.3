@@ -5,6 +5,7 @@ $(document).ready(function() {
   $('table.companies-table').dataTable({
     "bProcessing": true,
     "bServerSide": true,
-    "sAjaxSource": "/companies.json"
+    "sAjaxSource": "/companies.json",
+    "sPaginationType": "full_numbers"
   });
 });
