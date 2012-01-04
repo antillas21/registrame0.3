@@ -7,14 +7,18 @@ describe CompaniesController do
   end
 
   describe "GET index" do
-    it "assigns all companies as @companies" do
-      company = Company.create! valid_attributes
-      get :index
-      assigns(:companies).should eq([company])
-    end
+    it "assigns all companies as @companies"
+#      company = Company.create! valid_attributes
+#      get :index
+#      assigns(:companies).should eq([company])
 
     it "renders a JSON file to use on index.html with datatables" do
-      # pending
+      get :index, format: :json
+      response.should be_success
+      
+      json_body = JSON.parse(response.body)
+      json_body.should include('sEcho')
+      json_body.should include('aaData')
     end
   end
 
