@@ -1,0 +1,46 @@
+%div.new-form.grid_12
+  = form_for @attendee do |f|
+    %fieldset
+      %legend Register Attendee
+      %div.clearfix
+        = f.label 'Attendee type'
+        %div.input
+          = f.select 'attendee_type', options_from_collection_for_select(AttendeeType.all, "id", "name")
+      %div.clearfix
+        = f.label :first_name
+        %div.input
+          = f.text_field :first_name
+      %div.clearfix
+        = f.label :last_name
+        %div.input
+          = f.text_field :last_name
+      %div.clearfix
+        = f.label :email
+        %div.input
+          = f.text_field :email
+      %div.clearfix
+        = f.label :phone
+        %div.input
+          = f.text_field :phone
+      %div.clearfix
+        = f.label 'Company'
+        %div.input
+          = f.text_field :company_name
+      %div.clearfix
+        = f.label :address
+        %div.input
+          = f.text_field :address
+      %div.clearfix
+        = f.label :city
+        %div.input
+          = f.text_field :city
+      %div.clearfix
+        = f.label 'State'
+        %div.input
+          = f.text_field :state_name
+      %div.clearfix
+        = f.label 'Country'
+        %div.input
+          = f.text_field :country_name
+      .actions
+        = f.submit 'Register Attendee', class: 'btn primary'

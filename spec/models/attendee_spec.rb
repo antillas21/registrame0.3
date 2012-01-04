@@ -111,6 +111,16 @@ describe Attendee do
       @moe.state.present?.should == false
       @moe.state.should == nil
     end
+
+    it "delegates :state_name to State.name" do
+      @homer.state_name.should == 'Ohio'
+    end
+
+    it "creates a new State record when no :state_name is found" do
+      attendee = Attendee.create(first_name: 'John', last_name: 'Doe', email: 'john@example.com', state_name: 'California')
+      attendee.state_name.should == 'California'
+      State.first(name: 'California').should_not be_nil
+    end
   end
     
   context "Countries" do
@@ -132,6 +142,30 @@ describe Attendee do
       
       @moe.country.present?.should == false
       @moe.country.should == nil
+    end
+
+    it "delegates :country_name to Country.name" do
+      @homer.country_name.should == 'United States'
+    end
+
+    it "creates a new Country record when no :country_name is found" do
+      attendee = Attendee.create(first_name: 'Louis', last_name: 'Clark', email: 'louis@exmaple.com', country_name: 'Canada')
+      attendee.country_name.should == 'Canada'
+      Country.first(name: 'Canada').should_not be_nil
+    end
+  end
+
+  context "Companies" do
+    it "delegates :company_name to Company.name attribute" do
+      company = Company.create(name: 'BigShot Ltd.')
+      attendee = Attendee.create(first_name: 'John', last_name: 'Doe', email: 'john@exmaple.com', company: company)
+      attendee.company_name.should == company.name
+    end
+
+    it "creates a Company record when no :company_name is found" do
+      attendee = Attendee.create(first_name: 'John', last_name: 'Doe', email: 'john@example.com', company_name: 'X Games')
+      attendee.company_name.should == 'X Games'
+      Company.first(name: 'X Games').should_not be_nil
     end
   end
   

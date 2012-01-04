@@ -23,6 +23,8 @@ class Attendee
   belongs_to :company, required: false
   
   has n, :interests, :through => Resource
+
+  #delegate :name, :to => :company, :prefix => true
   
   def full_name
     [first_name, last_name].join(' ')
@@ -34,6 +36,30 @@ class Attendee
   
   def url_name(field)
     field.gsub(/[^a-z0-9]+/i, '-').gsub(/-+$/i, '')
+  end
+
+  def company_name
+    self.company.name if company
+  end
+
+  def company_name=(name)
+    self.company = Company.first_or_create(name: name) unless name.blank?
+  end
+
+  def country_name
+    self.country.name if country
+  end
+
+  def country_name=(name)
+    self.country = Country.first_or_create(name: name) unless name.blank?
+  end
+
+  def state_name
+    self.state.name if state
+  end
+
+  def state_name=(name)
+    self.state = State.first_or_create(name: name) unless name.blank?
   end
   
 end
