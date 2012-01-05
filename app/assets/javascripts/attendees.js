@@ -16,4 +16,11 @@ $(document).ready(function() {
     source: '/pages/companies_autocomplete.json',
     minLength: 2
   });
+
+  $('table.attendees-table').dataTable({
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "/attendees.json",
+    "sPaginationType": "full_numbers"
+  });
 });

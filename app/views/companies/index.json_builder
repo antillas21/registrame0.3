@@ -2,5 +2,5 @@ sEcho @sEcho
 iTotalRecords @iTotalRecords
 iTotalDisplayRecords @iTotalDisplayRecords
 aaData @companies do |company|
-  ["<a href=\"#{company_url(company)}\">#{company.name}</a>"]
+  ["<a href=\"#{company_url(company)}\">#{company.name}</a><br />#{pluralize(company.attendees.count, 'attendee')}"]
 end

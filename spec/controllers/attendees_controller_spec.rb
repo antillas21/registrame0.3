@@ -7,10 +7,17 @@ describe AttendeesController do
   end
 
   describe "GET index" do
-    it "assigns all attendees as @attendees" do
-      attendee = Attendee.create! valid_attributes
-      get :index
-      assigns(:attendees).should eq([attendee])
+#    it "assigns all attendees as @attendees" do
+#      attendee = Attendee.create! valid_attributes
+#      get :index
+#      assigns(:attendees).should eq([attendee])
+#    end
+    it "renders a customized JSON file" do
+      get :index, format: :json
+      response.should be_success
+      body = JSON.parse(response.body)
+      body.should include("sEcho")
+      body.should include("aaData")
     end
   end
 

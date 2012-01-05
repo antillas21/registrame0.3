@@ -1,8 +1,18 @@
 class AttendeesController < ApplicationController
+  respond_to :html, :json
+
   before_filter :get_attendee, only: [:show, :edit, :update, :destroy]
 
   def index
-    @attendees = Attendee.all
+    direction = params[:sSortDir_0] || "asc"
+    @attendees = Attendee.all(
+      :last_name.like => "%#{params[:sSearch]}%", limit: params[:iDisplayLength].to_i,
+      offset: params[:iDisplayStart].to_i, order: [:last_name.send(direction)]
+    )
+    @iTotalRecords = Attendee.count
+    @iTotalDisplayRecords = Attendee.count(:last_name.like => "%#{params[:sSearch]}%")
+    @sEcho = params[:sEcho].to_i
+    respond_with @attendees
   end
 
   def show

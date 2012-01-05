@@ -1,0 +1,6 @@
+sEcho @sEcho 
+iTotalRecords @iTotalRecords
+iTotalDisplayRecords @iTotalDisplayRecords
+aaData @attendees do |attendee|
+  ["<a href=\"#{attendee_url(attendee)}\">#{attendee.full_name}</a><br />#{attendee.company_name}"]
+end
