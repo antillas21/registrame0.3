@@ -12,6 +12,11 @@ describe StatesController do
       get :index
       assigns[:states].should eq([state])
     end
+
+    it "responds to json format" do
+      get :index, format: :json
+      response.should be_success
+    end
   end
 
 end

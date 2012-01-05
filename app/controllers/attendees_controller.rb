@@ -10,6 +10,7 @@ class AttendeesController < ApplicationController
 
   def new
     @attendee = Attendee.new
+    @attendee_types = AttendeeType.all(order: [:name.asc])
   end
 
   def create
@@ -22,7 +23,7 @@ class AttendeesController < ApplicationController
   end
 
   def edit
-    
+    @attendee_types = AttendeeType.all(order: [:name.asc])
   end
 
   def update
@@ -40,6 +41,6 @@ class AttendeesController < ApplicationController
 
   private
   def get_attendee
-    @attendee = Attendee.get(params[:id])
+    @attendee = Attendee.get(params[:id].to_i)
   end
 end

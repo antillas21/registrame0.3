@@ -1,0 +1,7 @@
+%div.form.grid_12
+  = form_for @attendee do |f|
+    %fieldset
+      %legend Edit Attendee
+      = render partial: 'form', locals: { f: f }
+      .actions
+        = f.submit 'Update Attendee', class: 'btn primary'

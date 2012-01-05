@@ -9,6 +9,7 @@ class Attendee
   property :phone, String, :required => false
   property :address, String, :required => false
   property :city, String, :required => false
+  property :attendee_type_id, Integer, :required => false
   
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -60,6 +61,14 @@ class Attendee
 
   def state_name=(name)
     self.state = State.first_or_create(name: name) unless name.blank?
+  end
+
+  def registration_type
+    self.attendee_type.name if attendee_type
+  end
+
+  def registration_type=(id)
+    self.attendee_type = AttendeeType.first(id: id)
   end
   
 end

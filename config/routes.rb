@@ -1,6 +1,4 @@
 Registrame::Application.routes.draw do
-  get "states/index"
-  get "countries/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -20,6 +18,10 @@ Registrame::Application.routes.draw do
   resources :attendees
   resources :labels
   resources :preferences
+  resources :states
+  resources :countries
+
+  match 'pages/companies_autocomplete' => 'pages#companies_autocomplete', :as => :companies_autocomplete
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
