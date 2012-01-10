@@ -25,6 +25,7 @@ class AttendeesController < ApplicationController
 
   def create
     @attendee = Attendee.new(params[:attendee])
+    @attendee_types = AttendeeType.all(order: [:name.asc])
     if @attendee.save
       redirect_to attendee_path(@attendee), notice: 'Attendee successfully created.'
     else
@@ -37,6 +38,7 @@ class AttendeesController < ApplicationController
   end
 
   def update
+    @attendee_types = AttendeeType.all(order: [:name.asc])
     if @attendee.update(params[:attendee])
       redirect_to attendee_path(@attendee), notice: 'Attendee successfully updated.'
     else

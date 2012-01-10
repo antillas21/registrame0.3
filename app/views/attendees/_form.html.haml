@@ -1,3 +1,9 @@
+- if @attendee.errors.any?
+  %div{:class => "alert-message block-message error fade in", :data => {:alert => "alert"}}
+    %a{:href => "#", :class => "close"}x
+    %ul
+    - @attendee.errors.full_messages.each do |error|
+      %li= error
 %div.clearfix
   = f.label :registration_type
   %div.input

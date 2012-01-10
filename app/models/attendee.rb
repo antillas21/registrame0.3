@@ -9,14 +9,13 @@ class Attendee
   property :phone, String, :required => false
   property :address, String, :required => false
   property :city, String, :required => false
-  property :attendee_type_id, Integer, :required => false
   
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates_presence_of :first_name, :last_name, :email
   validates_format_of :email, :with => EmailRegex
   validates_uniqueness_of :email
-  validates_numericality_of :phone, :allow_nil => true
+  validates_numericality_of :phone, :allow_nil => true, :allow_blank => true
   
   belongs_to :state, :required => false
   belongs_to :country, :required => false
@@ -25,8 +24,6 @@ class Attendee
   
   has n, :interests, :through => Resource
 
-  #delegate :name, :to => :company, :prefix => true
-  
   def full_name
     [first_name, last_name].join(' ')
   end
