@@ -6,10 +6,19 @@ module PreferencesHelper
   private
 
   def tag_class(field)
-    field == true ? 'success' : 'important'
+    if field == true || field.present?
+      'success'
+    else
+      'important'
+    end
   end
 
   def value_for(field)
-    field == true ? 'Yes' : 'No'
+    if field == true || field.present?
+      'Yes'
+    else
+      'No'
+    end
   end
+
 end

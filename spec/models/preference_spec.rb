@@ -12,17 +12,15 @@ describe Preference do
   end
 
   it "sends the folowing fields to NameBadge label by default: Full name, Company name, Attendee type" do
+    label_defaults = {"full_name" => "1", "company" => "1", "attendee_type" => "1"}
     prefs = Preference.create
-    [:label_field_fullname, :label_field_company, :label_field_attendee_type].each do |attr|
-      prefs.attribute_get(attr).should == true
-    end
+    prefs.label_options.should == label_defaults
   end
 
   it "sends the following fields to QRCode by default: Full name, Email, Phone, Company Name" do
+    qrcode_defaults = {"full_name" => "1", "email" => "1", "phone" => "1", "company" => "1"}
     prefs = Preference.create
-    [:qrcode_field_fullname, :qrcode_field_email, :qrcode_field_phone, :qrcode_field_company].each do |attr|
-      prefs.attribute_get(attr).should == true
-    end
+    prefs.qrcode_options.should == qrcode_defaults
   end
 
 end

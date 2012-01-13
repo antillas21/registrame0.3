@@ -9,33 +9,33 @@
           = f.check_box :print_label
       %h5 Fields to include in Name badge
       .clearfix
-        = f.label :label_field_fullname, 'Full name'
+        = f.label 'Full name'
         .input
-          = f.check_box :label_field_fullname
+          = check_box_tag 'preference[label_options][full_name]', "1", @label_options["full_name"].present?
       .clearfix
-        = f.label :label_field_email, 'Email'
+        = f.label 'Email'
         .input
-          = f.check_box :label_field_email
+          = check_box_tag 'preference[label_options][email]', "1", @label_options["email"].present?
+          .clearfix
+        = f.label 'Phone'
+        .input
+          = check_box_tag 'preference[label_options][phone]', "1", @label_options["phone"].present?
       .clearfix
-        = f.label :label_field_phone, 'Phone'
+        = f.label 'Company'
         .input
-          = f.check_box :label_field_phone
+          = check_box_tag 'preference[label_options][company]', "1", @label_options["company"].present?
       .clearfix
-        = f.label :label_field_company, 'Company'
+        = f.label 'Address'
         .input
-          = f.check_box :label_field_company
+          = check_box_tag 'preference[label_options][address]', "1", @label_options["address"].present?
       .clearfix
-        = f.label :label_field_address, 'Address'
+        = f.label 'City'
         .input
-          = f.check_box :label_field_address
+          = check_box_tag 'preference[label_options][city]', "1", @label_options["city"].present?
       .clearfix
-        = f.label :label_field_city, 'City'
+        = f.label 'Attendee type'
         .input
-          = f.check_box :label_field_city
-      .clearfix
-        = f.label :label_field_attendee_type, 'Attendee type'
-        .input
-          = f.check_box :label_field_attendee_type
+          = check_box_tag 'preference[label_options][attendee_type]', "1", @label_options["attendee_type"].present?
     .grid_6.omega
       .clearfix
         = f.label :create_qrcode
@@ -43,29 +43,29 @@
           = f.check_box :create_qrcode
       %h5 Fields to include in Name badge
       .clearfix
-        = f.label :qrcode_field_fullname, 'Full name'
+        = f.label 'Full name'
         .input
-          = f.check_box :qrcode_field_fullname
+          = check_box_tag 'preference[qrcode_options][full_name]', "1", @qrcode_options["full_name"].present?
       .clearfix
-        = f.label :qrcode_field_email, 'Email'
+        = f.label 'Email'
         .input
-          = f.check_box :qrcode_field_email
+          = check_box_tag 'preference[qrcode_options][email]', "1", @qrcode_options["email"].present?
       .clearfix
-        = f.label :qrcode_field_phone, 'Phone'
+        = f.label 'Phone'
         .input
-          = f.check_box :qrcode_field_phone
+          = check_box_tag 'preference[qrcode_options][phone]', "1", @qrcode_options["phone"].present?
       .clearfix
-        = f.label :qrcode_field_company, 'Company'
+        = f.label 'Company'
         .input
-          = f.check_box :qrcode_field_company
+          = check_box_tag 'preference[qrcode_options][company]', "1", @qrcode_options["company"].present?
       .clearfix
-        = f.label :qrcode_field_address, 'Address'
+        = f.label 'Address'
         .input
-          = f.check_box :qrcode_field_address
+          = check_box_tag 'preference[qrcode_options][address]', "1", @qrcode_options["address"].present?
       .clearfix
-        = f.label :qrcode_field_city, 'City'
+        = f.label 'City'
         .input
-          = f.check_box :qrcode_field_city
+          = check_box_tag 'preference[qrcode_options][city]', "1", @qrcode_options["city"].present?
     .clear
     .actions
       = f.submit 'Update preferences', class: 'btn primary'
