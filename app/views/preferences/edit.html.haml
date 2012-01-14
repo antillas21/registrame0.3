@@ -9,7 +9,7 @@
           = f.check_box :print_label
       %h5 Fields to include in Name badge
       .label-fields
-        - ['full_name', 'email', 'phone', 'company', 'address', 'city', 'attendee_type'].each do |attribute|
+        - ['full_name', 'email', 'phone', 'company_name', 'address', 'city', 'registration_type'].each do |attribute|
           .clearfix
             = f.label attribute.titlecase
             .input
@@ -21,7 +21,7 @@
           = f.check_box :create_qrcode
       %h5 Fields to include in QRCode
       .qrcode-fields
-        - ['full_name', 'email', 'phone', 'company', 'address', 'city'].each do |attribute|
+        - ['full_name', 'email', 'phone', 'company_name', 'address', 'city'].each do |attribute|
           .clearfix
             = f.label attribute.titlecase
             .input
