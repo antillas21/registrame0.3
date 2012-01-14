@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 
   def set_badge_cookies
     prefs = Preference.first
+    
     cookies[:qrcode] = prefs.create_qrcode
     cookies[:label] = prefs.print_label
+
+    cookies[:label_contents] = prefs.label_options.to_hash.keys
+    cookies[:qrcode_contents] = prefs.qrcode_options.to_hash.keys
   end
 end
