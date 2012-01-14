@@ -2,6 +2,7 @@ class AttendeesController < ApplicationController
   respond_to :html, :json
 
   before_filter :get_attendee, only: [:show, :edit, :update, :destroy]
+  before_filter :set_label_options_on_cookie, only: [:show]
 
   def index
     direction = params[:sSortDir_0] || "asc"
@@ -49,6 +50,14 @@ class AttendeesController < ApplicationController
   def destroy
     @attendee.destroy
     redirect_to attendees_path
+  end
+
+  def set_label_options_on_cookie
+    prefs = Preference.first
+    initialize_cookie_tracker(
+      :print_label => prefs.print_label, :create_qrcode => prefs.create_qrcode,
+      :label_options => prefs.label_options.to_hash.keys, :qrcode_options => prefs.qrcode_options
+    )
   end
 
   private

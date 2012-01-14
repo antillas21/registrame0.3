@@ -6,6 +6,8 @@
     = @attendee.company_name
     %br/
     = address_data(@attendee)
+    = cookies[:label_options]
+    = @label_options.split('&').class
 %div.actions
   = link_to 'Print Badge', '#', class: 'btn primary'
   = link_to 'Edit', edit_attendee_path(@attendee), class: 'btn'
