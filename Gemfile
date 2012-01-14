@@ -49,7 +49,6 @@ gem 'haml-rails', '~> 0.3.4'
 gem 'haml'
 
 gem 'json_builder', '3.0.2'
-gem 'cookie_tracker'
 
 group(:development, :test) do
 
