@@ -11,13 +11,7 @@ class PreferencesController < ApplicationController
     @preferences = Preference.first
     if @preferences.update(params[:preference])
       redirect_to preference_path(@preferences), notice: 'Preferences successfully updated.'
-
-      prefs = Preference.first
-#      [:qrcode, :label].each do |cookie|
-#        cookies.delete(cookie)
-#      end
-      cookies[:qrcode] = prefs.create_qrcode
-      cookies[:label] = prefs.print_label
+      set_badge_cookies
     else
       render :edit, error: 'There was an error trying to save preferences, please try again.'
     end

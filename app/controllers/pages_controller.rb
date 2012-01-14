@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   respond_to :json
-  before_filter :set_cookies
+  before_filter :set_badge_cookies
 
   def index
     @msg = 'Welcome to registrame'
@@ -13,11 +13,4 @@ class PagesController < ApplicationController
     @companies = Company.all(:name.like => "%#{params[:term]}%", order: [:name.asc])
     respond_with @companies.map(&:name)
   end
-
-  def set_cookies
-    prefs = Preference.first
-    cookies[:qrcode] = prefs.create_qrcode
-    cookies[:label] = prefs.print_label
-  end
-
 end
