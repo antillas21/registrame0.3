@@ -8,64 +8,24 @@
         .input
           = f.check_box :print_label
       %h5 Fields to include in Name badge
-      .clearfix
-        = f.label 'Full name'
-        .input
-          = check_box_tag 'preference[label_options][full_name]', "1", @label_options["full_name"].present?
-      .clearfix
-        = f.label 'Email'
-        .input
-          = check_box_tag 'preference[label_options][email]', "1", @label_options["email"].present?
+      .label-fields
+        - ['full_name', 'email', 'phone', 'company', 'address', 'city', 'attendee_type'].each do |attribute|
           .clearfix
-        = f.label 'Phone'
-        .input
-          = check_box_tag 'preference[label_options][phone]', "1", @label_options["phone"].present?
-      .clearfix
-        = f.label 'Company'
-        .input
-          = check_box_tag 'preference[label_options][company]', "1", @label_options["company"].present?
-      .clearfix
-        = f.label 'Address'
-        .input
-          = check_box_tag 'preference[label_options][address]', "1", @label_options["address"].present?
-      .clearfix
-        = f.label 'City'
-        .input
-          = check_box_tag 'preference[label_options][city]', "1", @label_options["city"].present?
-      .clearfix
-        = f.label 'Attendee type'
-        .input
-          = check_box_tag 'preference[label_options][attendee_type]', "1", @label_options["attendee_type"].present?
+            = f.label attribute.titlecase
+            .input
+              = check_box_tag "preference[label_options][#{attribute}]", "1", @label_options["#{attribute}"].present?
     .grid_6.omega
       .clearfix
         = f.label :create_qrcode
         .input
           = f.check_box :create_qrcode
-      %h5 Fields to include in Name badge
-      .clearfix
-        = f.label 'Full name'
-        .input
-          = check_box_tag 'preference[qrcode_options][full_name]', "1", @qrcode_options["full_name"].present?
-      .clearfix
-        = f.label 'Email'
-        .input
-          = check_box_tag 'preference[qrcode_options][email]', "1", @qrcode_options["email"].present?
-      .clearfix
-        = f.label 'Phone'
-        .input
-          = check_box_tag 'preference[qrcode_options][phone]', "1", @qrcode_options["phone"].present?
-      .clearfix
-        = f.label 'Company'
-        .input
-          = check_box_tag 'preference[qrcode_options][company]', "1", @qrcode_options["company"].present?
-      .clearfix
-        = f.label 'Address'
-        .input
-          = check_box_tag 'preference[qrcode_options][address]', "1", @qrcode_options["address"].present?
-      .clearfix
-        = f.label 'City'
-        .input
-          = check_box_tag 'preference[qrcode_options][city]', "1", @qrcode_options["city"].present?
+      %h5 Fields to include in QRCode
+      .qrcode-fields
+        - ['full_name', 'email', 'phone', 'company', 'address', 'city'].each do |attribute|
+          .clearfix
+            = f.label attribute.titlecase
+            .input
+              = check_box_tag "preference[qrcode_options][#{attribute}]", "1", @qrcode_options["#{attribute}"].present?
     .clear
     .actions
       = f.submit 'Update preferences', class: 'btn primary'
