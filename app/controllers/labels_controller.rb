@@ -27,6 +27,7 @@ class LabelsController < ApplicationController
   def update
     if @label.update(params[:label])
       redirect_to @label, notice: 'Label successfully updated.'
+      set_format_cookies
     else
       render :edit, error: 'Please correct any errors present.'
     end
