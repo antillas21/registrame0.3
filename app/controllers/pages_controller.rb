@@ -1,12 +1,10 @@
 class PagesController < ApplicationController
   respond_to :json
-  before_filter :set_badge_cookies
+  before_filter :set_badge_cookies, :only => [:index]
+  before_filter :set_format_cookies, :only => [:index]
 
   def index
     @msg = 'Welcome to registrame'
-    if session[:current_user].present?
-      @this_user = session[:current_user].user
-    end
   end
 
   def companies_autocomplete
