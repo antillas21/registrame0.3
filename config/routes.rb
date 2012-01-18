@@ -15,7 +15,11 @@ Registrame::Application.routes.draw do
   resources :interests
   resources :companies
   resources :attendee_types
-  resources :attendees
+  resources :attendees do
+    member do
+      get 'namebadge'
+    end
+  end
   resources :labels
   resources :preferences
   resources :states

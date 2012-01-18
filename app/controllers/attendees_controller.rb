@@ -1,7 +1,7 @@
 class AttendeesController < ApplicationController
   respond_to :html, :json
 
-  before_filter :get_attendee, only: [:show, :edit, :update, :destroy]
+  before_filter :get_attendee, only: [:show, :edit, :update, :destroy, :namebadge]
 
   def index
     direction = params[:sSortDir_0] || "asc"
@@ -49,6 +49,13 @@ class AttendeesController < ApplicationController
   def destroy
     @attendee.destroy
     redirect_to attendees_path
+  end
+
+  def namebadge
+    @doc = PdfDocument.new(cookies[:label_format].split('&'), cookies[:label_margins].split('&'), cookies[:label_font_size].to_i)
+    @doc.create_label(@attendee, cookies[:qrcode].to_s, cookies[:label_contents].split('&'), cookies[:qrcode_contents].split('&'))
+
+    redirect_to root_path+"/public/uploads/labels/#{@attendee.to_param}.pdf"
   end
 
   private

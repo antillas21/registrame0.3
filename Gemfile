@@ -51,6 +51,7 @@ gem 'haml'
 gem 'json_builder', '3.0.2'
 gem 'prawn'
 gem 'prawn-qrcode'
+gem 'rqrcode'
 
 group(:development, :test) do
 

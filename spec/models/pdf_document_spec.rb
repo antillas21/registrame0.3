@@ -41,10 +41,7 @@ describe PdfDocument do
       )
     end
 
-    it "instantiates a new Prawn::Documment object" do
-      @pdf = @doc.create_label(@attendee)
-      @pdf.class.should == Prawn::Document
-    end
+    it "instantiates a new Prawn::Document object"
 
     context "with only text data" do
       it "populates PDF document with Attendee data" do
@@ -60,11 +57,17 @@ describe PdfDocument do
     context "with text and QRCode data" do
       it "populates PDF document with Attendee data and QRCode" do
         @label_contents = ["full_name", "company_name"]
+        @qrcode_contents = ["full_name", "email", "company_name"]
+
         @pdf = @doc.create_label(@attendee, true, @label_contents)
 
         created_pdf = PDF::Reader.new("#{Rails.root.to_s}/public/uploads/labels/#{@attendee.to_param}.pdf")
+        expected_pdf = PDF::Reader.new("#{Rails.root.to_s}/spec/files/text-and-qrcode.pdf")
+
         page = created_pdf.pages.first
         page.text.split("\n").should == ["John Doe", "Bigshot Company"]
+
+        created_pdf.should == expected_pdf
       end
     end
 
