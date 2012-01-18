@@ -49,6 +49,8 @@ gem 'haml-rails', '~> 0.3.4'
 gem 'haml'
 
 gem 'json_builder', '3.0.2'
+gem 'prawn'
+gem 'prawn-qrcode'
 
 group(:development, :test) do
 
