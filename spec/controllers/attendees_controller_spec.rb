@@ -27,6 +27,13 @@ describe AttendeesController do
       get :show, :id => attendee.id
       assigns(:attendee).should eq(attendee)
     end
+
+    it "marks an attendee as printed once its namebadge is generated" do
+      john = Attendee.create! valid_attributes
+      get :show, :id => john.id
+      get :namebadge, :id => john.id
+      john.printed.should be_true
+    end
   end
 
   describe "GET new" do

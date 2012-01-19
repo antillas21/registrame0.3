@@ -210,5 +210,36 @@ describe Attendee do
       @jfk.interests.count.should == 0
     end
   end
+
+  describe "Printed namebadges" do
+    before do
+      [["Homer", "homer@springfield.com"], ["Marge", "marge@springfield.com"], ["Bart", "bart@springfield.com"]].each do |name, email|
+        Attendee.create(
+          first_name: name, last_name: "Simpson", email: email
+        )
+      end
+    end
+
+    it "keeps track of attendees that have generated their namebadge" do
+      Attendee.count.should == 3
+      Attendee.printed.should == []
+
+      homer = Attendee.first(first_name: "Homer")
+      marge = Attendee.first(first_name: "Marge")
+      homer.update(printed: true)
+
+      Attendee.printed.should include(homer)
+      Attendee.printed.should_not include(marge)
+    end
+
+    it "calculates total printed namebadges" do
+      Attendee.printed_badges.should == 0
+
+      Attendee.first.update(printed: true)
+      Attendee.last.update(printed: true)
+
+      Attendee.printed_badges.should == 2
+    end
+  end
   
 end
