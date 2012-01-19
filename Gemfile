@@ -43,6 +43,7 @@ gem "tzinfo"
 
 gem 'devise', '> 1.4.6'
 gem 'dm-devise', '~> 1.5.0.beta'
+gem 'dm-paperclip-r3', '~> 2.4.4'
 
 # templating
 gem 'haml-rails', '~> 0.3.4'
