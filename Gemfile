@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 RAILS_VERSION = '~> 3.1.1'
-DM_VERSION    = '~> 1.2.0.rc2'
+DM_VERSION    = '~> 1.2.0'
 
 gem 'activesupport',      RAILS_VERSION, :require => 'active_support'
 gem 'actionpack',         RAILS_VERSION, :require => 'action_pack'
@@ -9,7 +9,7 @@ gem 'actionmailer',       RAILS_VERSION, :require => 'action_mailer'
 gem 'railties',           RAILS_VERSION, :require => 'rails'
 
 gem 'rails',              RAILS_VERSION
-gem 'dm-rails',          '~> 1.2.0.rc2'
+gem 'dm-rails',          '~> 1.2.0'
 gem 'dm-mysql-adapter', DM_VERSION
 
 gem 'jquery-rails'
@@ -37,13 +37,14 @@ gem 'dm-transactions',      DM_VERSION
 gem 'dm-aggregates',        DM_VERSION
 gem 'dm-timestamps',        DM_VERSION
 gem 'dm-observer',          DM_VERSION
-gem 'dm-serializer', '1.2.0.rc2'
+gem 'dm-serializer', '1.2.0'
 
 gem "tzinfo"
 
 gem 'devise', '> 1.4.6'
 gem 'dm-devise', '~> 1.5.0.beta'
-gem 'dm-paperclip-r3', '~> 2.4.4'
+#gem 'dm-paperclip', '2.4.0'
+gem 'dm-paperclip', :git => 'git://github.com/Snorby/dm-paperclip.git'
 
 # templating
 gem 'haml-rails', '~> 0.3.4'
