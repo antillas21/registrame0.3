@@ -18,4 +18,8 @@ class Import
   validates_attachment_presence :document
   validates_attachment_content_type :document, :content_type => 'text/csv'
 
+  before :save do
+    self.name = document_file_name
+  end
+
 end

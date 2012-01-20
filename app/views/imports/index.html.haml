@@ -1,0 +1,19 @@
+%div#add-form.grid_12
+  = form_for @import, { multipart: true, remote: true}  do |f|
+    %fieldset
+      %legend Upload import file
+      %div.clearfix
+        = f.label :document
+        %div.input
+          = f.file_field :document
+          = f.submit "Upload file", class: "btn primary"
+  - if @import.errors.any?
+    %div{:class => "alert-message block-message error fade in", :data => {:alert => "alert"}}
+      %a{:href => "#", :class => "close"}x
+      %ul
+      - @import.errors.full_messages.each do |error|
+        %li= error
+
+%h2.page-header.grid_12 Uploaded files
+%div#uploaded-files
+  = render @imports unless @imports.nil?
