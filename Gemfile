@@ -54,6 +54,7 @@ gem 'json_builder', '3.0.2'
 gem 'prawn'
 gem 'prawn-qrcode'
 gem 'rqrcode'
+gem 'fastercsv'
 
 group(:development, :test) do
 
