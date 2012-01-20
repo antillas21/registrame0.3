@@ -45,4 +45,14 @@ describe ImportsController do
       response.should redirect_to(imports_url)
     end
   end
+
+  describe "POST import" do
+    it "fetches the attached csv file"
+
+    it "parses attached csv file to build a CSV::Table"
+
+    it "counts Attendee records prior to import"
+
+    it "returns count for Imported records after process"
+  end
 end

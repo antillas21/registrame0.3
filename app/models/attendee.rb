@@ -69,6 +69,14 @@ class Attendee
     self.attendee_type = AttendeeType.first(id: id)
   end
 
+  def registration=(name)
+    self.attendee_type = AttendeeType.first_or_create(name: name)
+  end
+
+  def registration
+    self.attendee_type.name if attendee_type
+  end
+
   def self.printed_badges
     count(printed: true)
   end
