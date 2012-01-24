@@ -47,12 +47,40 @@ describe ImportsController do
   end
 
   describe "POST import" do
-    it "fetches the attached csv file"
+    before do
+      @imported = Import.create(:document => File.join(Rails.root, 'spec', 'files', 'valid-import.csv'),
+                               :document_file_name => 'valid-import.csv', :document_content_type => 'text/csv')
+    end
 
-    it "parses attached csv file to build a CSV::Table"
+    it "is active from the #show page" do
+      get :show, :id => @imported.id
+      assigns(:import).should == @imported
+    end
 
-    it "counts Attendee records prior to import"
+    it "fetches the attached csv file" do
+      get :show, :id => @imported.id
+      post :import, :id => @imported.id
+#      assigns(:import_file).should eq(import.document.path)
+      assigns(:import_file).present?.should be_true
+    end
+
+    it "imports all records found on csv file" do
+      import = Import.create! valid_attributes
+      post :import, :id => import.id
+
+      Attendee.count.should == 6
+    end
+
+    it "counts Attendee records prior to import" do
+      import = Import.create! valid_attributes
+      count = Attendee.count
+
+      post :import, :id => import.id
+      assigns(:previous_count).should eq(count)
+    end
 
     it "returns count for Imported records after process"
+
+    it "destroys attached file after import process completes"
   end
 end

@@ -70,7 +70,7 @@ class Attendee
   end
 
   def registration=(name)
-    self.attendee_type = AttendeeType.first_or_create(name: name)
+    self.attendee_type = AttendeeType.first_or_create(name: name) unless name.blank?
   end
 
   def registration

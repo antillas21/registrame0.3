@@ -225,7 +225,6 @@ DEPENDENCIES
   dm-types (~> 1.2.0)
   dm-validations (~> 1.2.0)
   factory_girl_rails
-  fastercsv
   haml
   haml-rails (~> 0.3.4)
   jquery-rails

@@ -24,7 +24,12 @@ Registrame::Application.routes.draw do
   resources :preferences
   resources :states
   resources :countries
-  resources :imports
+  resources :imports do
+    member do
+      post 'import'
+      get 'import'
+    end
+  end
 
   match 'pages/companies_autocomplete' => 'pages#companies_autocomplete', :as => :companies_autocomplete
 

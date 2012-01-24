@@ -32,7 +32,7 @@
         .grid_2.alpha
           %p Company:
         .grid_4.omega
-          = label_output(@label_options["company"])
+          = label_output(@label_options["company_name"])
       .clear
       %div
         .grid_2.alpha
@@ -50,7 +50,7 @@
         .grid_2.alpha
           %p Attendee type:
         .grid_4.omega
-          = label_output(@label_options["attendee_type"])
+          = label_output(@label_options["registration_type"])
       .clear
   .grid_6.omega
     %div.qrcode-properties
@@ -84,7 +84,7 @@
         .grid_2.alpha
           %p Company:
         .grid_4.omega
-          = label_output(@qrcode_options["company"])
+          = label_output(@qrcode_options["company_name"])
       .clear
       %div
         .grid_2.alpha
