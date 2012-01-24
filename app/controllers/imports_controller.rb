@@ -30,23 +30,23 @@ class ImportsController < ApplicationController
 
   def import
     @import = Import.get(params[:id])
-    @import_file = @import.document.path
     @previous_count = Attendee.count
-    perform_import_process
+
+    perform_import_process(@import.document.path)
 
     @final_count = Attendee.count
-
     if @final_count != @previous_count
       msg = "Successfully imported #{@final_count - @previous_count} records."
     else
       msg = "No records were imported."
     end
+
     redirect_to imports_path, notice: msg
   end
 
   private
-  def perform_import_process
-    CSV.foreach(@import_file, headers: true) do |row|
+  def perform_import_process(file)
+    CSV.foreach(file, headers: true, col_sep: ";") do |row|
       row = row.to_hash.symbolize_keys!
       [
         :first_name, :last_name, :email, :registration, :phone, :company_name,
@@ -56,8 +56,17 @@ class ImportsController < ApplicationController
           row[attr] = "" if row[attr].nil?
         end
       end
+      row[:phone] = clean_phone_numbers(row[:phone]) if row.keys.include?(:phone)
 
       Attendee.create(row)
     end
+  end
+
+  def clean_phone_numbers(row_phone_number)
+    row_phone_number.gsub!(/\D/, "")
+    if row_phone_number.length > 10
+      row_phone_number = row_phone_number[0..9] 
+    end
+    return row_phone_number
   end
 end

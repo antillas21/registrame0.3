@@ -7,7 +7,7 @@
           = f.label :document
           %div.input
             = f.file_field :document
-            = f.submit "Upload file", class: "btn primary"
+            = f.submit "Upload file", class: "btn"
     - if @import.errors.any?
       %div{:class => "alert-message block-message error fade in", :data => {:alert => "alert"}}
         %a{:href => "#", :class => "close"}x
