@@ -2,6 +2,7 @@ class ImportsController < ApplicationController
   def index
     @imports = Import.last
     @import = Import.new
+    @current_count = Attendee.count
   end
 
   def new
@@ -31,7 +32,20 @@ class ImportsController < ApplicationController
     @import = Import.get(params[:id])
     @import_file = @import.document.path
     @previous_count = Attendee.count
+    perform_import_process
 
+    @final_count = Attendee.count
+
+    if @final_count != @previous_count
+      msg = "Successfully imported #{@final_count - @previous_count} records."
+    else
+      msg = "No records were imported."
+    end
+    redirect_to imports_path, notice: msg
+  end
+
+  private
+  def perform_import_process
     CSV.foreach(@import_file, headers: true) do |row|
       row = row.to_hash.symbolize_keys!
       [
@@ -45,8 +59,5 @@ class ImportsController < ApplicationController
 
       Attendee.create(row)
     end
-    @final_count = Attendee.count
-
-    redirect_to imports_path, notice: "Successfully imported #{@final_count - @previous_count} records."
   end
 end
