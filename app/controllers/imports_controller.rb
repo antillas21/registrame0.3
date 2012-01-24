@@ -41,6 +41,8 @@ class ImportsController < ApplicationController
       msg = "No records were imported."
     end
 
+    @import.destroy
+
     redirect_to imports_path, notice: msg
   end
 
