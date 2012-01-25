@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-
+    @company_attendees = @company.attendees
   end
 
   def edit

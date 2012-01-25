@@ -1,1 +1,18 @@
 %h2= @company.name
+
+%div#company-attendees
+  %table
+    %thead
+      %th Name
+      %th Email
+      %th Actions
+    %tbody
+      - @company_attendees.each do |attendee|
+        %tr
+          %td
+            = link_to attendee.full_name, attendee_path(attendee)
+          %td
+            = attendee.email
+          %td
+            = link_to 'Print Badge', namebadge_attendee_path(attendee), class: 'btn primary'
+            = link_to "Delete", attendee_path(attendee), method: :delete, confirm: "Are you sure?", class: "btn danger"
