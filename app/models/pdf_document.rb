@@ -53,12 +53,21 @@ class PdfDocument
   end
 
   def generate_qrcode(attendee, qrcode_contents = [])
-    elements = []
+    elements = {}
     qrcode_contents.each do |field|
-      elements << attendee.send(field.to_sym)
+      elements[field.to_sym] =  attendee.send(field.to_sym)
     end
 
-    mecard_string = "MECARD:N:#{elements[0]};ADR:#{elements[4]}, #{elements[5]};TEL:#{elements[2]};EMAIL:#{elements[1]};NOTE:#{elements[3]};;"
+    mecard_string = "MECARD:"
+    mecard_string << "N:#{elements[:full_name].to_s};" if elements[:full_name].present?
+    mecard_string << "TEL:#{elements[:phone].to_s};" if elements[:phone].present?
+    mecard_string << "EMAIL:#{elements[:email].to_s};" if elements[:email].present?
+    mecard_string << "ADR:#{elements[:address].to_s}" if elements[:address].present?
+    mecard_string << ", #{elements[:city].to_s}" if elements[:city].present?
+    mecard_string << ";" if elements[:address].present?
+    mecard_string << "NOTE:#{elements[:company_name].to_s};" if elements[:company_name].present?
+    mecard_string << ";"
+
     @contents_hash[:qrcode] = RQRCode::QRCode.new(mecard_string, level: :q, size: 12)
   end
 end
