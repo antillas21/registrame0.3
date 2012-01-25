@@ -58,7 +58,7 @@ class ImportsController < ApplicationController
           row[attr] = "" if row[attr].nil?
         end
       end
-      row[:phone] = clean_phone_numbers(row[:phone]) if row.keys.include?(:phone)
+      #row[:phone] = clean_phone_numbers(row[:phone]) if row.keys.include?(:phone)
 
       Attendee.create(row)
     end

@@ -3,20 +3,18 @@ class Attendee
   include DataMapper::Resource
 
   property :id, Serial
-  property :first_name, String, :required => true, :index => [:full_name]
-  property :last_name, String, :required => true, :index => [:full_name]
-  property :email, String, :required => true, :index => true
+  property :first_name, String, :length => 80, :required => true, :index => [:full_name]
+  property :last_name, String, :length => 80, :required => true, :index => [:full_name]
+  property :email, String, :length => 80, :required => true, :unique => true, :index => true
   property :phone, String, :required => false
-  property :address, String, :required => false
+  property :address, String, :length => 100, :required => false
   property :city, String, :required => false, :index => [:city]
   property :printed, Boolean, :default => false, :index => true
   
-  EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates_presence_of :first_name, :last_name, :email
-  validates_format_of :email, :with => EmailRegex
-  validates_uniqueness_of :email
-  validates_numericality_of :phone, :allow_nil => true, :allow_blank => true
+  validates_format_of :email, :as => :email_address
+  # validates_numericality_of :phone, :allow_nil => true, :allow_blank => true
   
   belongs_to :state, :required => false
   belongs_to :country, :required => false
