@@ -28,7 +28,7 @@ class Attendee
   end
   
   def to_param
-    "#{id}-#{url_name(first_name)}-#{url_name(last_name)}".downcase
+    [id, first_name.to_slug, last_name.to_slug].join('-')
   end
   
   def url_name(field)
