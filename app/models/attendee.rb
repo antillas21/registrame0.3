@@ -31,10 +31,6 @@ class Attendee
     [id, first_name.to_slug, last_name.to_slug].join('-')
   end
   
-  def url_name(field)
-    field.gsub(/[^a-z0-9]+/i, '-').gsub(/-+$/i, '')
-  end
-
   def company_name
     self.company.name if company
   end

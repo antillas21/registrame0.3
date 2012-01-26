@@ -12,9 +12,5 @@ class Company
   def to_param
     [id, name.to_slug].join('-')
   end
-#  
-#  def url_name(field)
-#    field.gsub(/[^a-z0-9]+/i, '-').gsub(/-+$/i, '')
-#  end
 
 end
