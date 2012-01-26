@@ -45,6 +45,7 @@ gem 'devise', '> 1.4.6'
 gem 'dm-devise', '~> 1.5.0.beta'
 #gem 'dm-paperclip', '2.4.0'
 gem 'dm-paperclip', :git => 'git://github.com/Snorby/dm-paperclip.git'
+gem 'dm-is-slug', :git => 'git://github.com/antillas21/dm-is-slug.git'
 
 # templating
 gem 'haml-rails', '~> 0.3.4'

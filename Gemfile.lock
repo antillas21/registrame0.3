@@ -4,6 +4,15 @@ GIT
   specs:
     dm-paperclip (2.4.1)
 
+GIT
+  remote: git://github.com/antillas21/dm-is-slug.git
+  revision: 9b3f458f22423c9c65d834af74d6d4b3b9fa3575
+  specs:
+    dm-is-slug (1.1.0)
+      dm-core (~> 1.2.0)
+      dm-validations (~> 1.2.0)
+      unidecode (~> 1.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -199,6 +208,7 @@ GEM
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
     tzinfo (0.3.30)
+    unidecode (1.0.0)
     uuidtools (2.1.2)
     warden (1.0.6)
       rack (>= 1.0)
@@ -214,6 +224,7 @@ DEPENDENCIES
   dm-aggregates (~> 1.2.0)
   dm-constraints (~> 1.2.0)
   dm-devise (~> 1.5.0.beta)
+  dm-is-slug!
   dm-migrations (~> 1.2.0)
   dm-mysql-adapter (~> 1.2.0)
   dm-observer (~> 1.2.0)
