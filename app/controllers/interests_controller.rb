@@ -1,4 +1,5 @@
 class InterestsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :find_interest, :only => [:show, :edit, :update, :destroy]
 
   def index

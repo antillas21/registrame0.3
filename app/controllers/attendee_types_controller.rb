@@ -1,5 +1,6 @@
 class AttendeeTypesController < ApplicationController
   respond_to :html, :js
+  before_filter :authenticate_user!
 
   before_filter :find_attendee_type, only: [:show, :edit, :update, :destroy]
   

@@ -1,5 +1,6 @@
 class AttendeesController < ApplicationController
   respond_to :html, :json
+  before_filter :authenticate_user!
 
   before_filter :get_attendee, only: [:show, :edit, :update, :destroy, :namebadge]
 

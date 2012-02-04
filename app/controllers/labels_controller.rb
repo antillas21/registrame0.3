@@ -1,4 +1,5 @@
 class LabelsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :get_label, only: [:show, :edit, :update, :destroy]
 
   def index

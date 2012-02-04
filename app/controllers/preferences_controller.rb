@@ -1,4 +1,5 @@
 class PreferencesController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :fetch_label_and_qrcode_options, :only => [:show, :edit]
 
   def show

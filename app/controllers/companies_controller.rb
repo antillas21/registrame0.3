@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   respond_to :json, :html
+  before_filter :authenticate_user!
 
   before_filter :find_company, only: [:show, :edit, :update, :destroy]
 
