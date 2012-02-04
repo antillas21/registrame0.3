@@ -132,6 +132,7 @@ GEM
     mocha (0.10.0)
       metaclass (~> 0.0.1)
     multi_json (1.0.4)
+    munger (0.0.2)
     orm_adapter (0.0.5)
     pdf-reader (1.0.0)
       Ascii85 (~> 1.0.0)
@@ -231,6 +232,7 @@ DEPENDENCIES
   jquery-rails
   json_builder (= 3.0.2)
   mocha (~> 0.10.0)
+  munger (= 0.0.2)
   prawn
   prawn-qrcode
   rails (~> 3.1.1)
