@@ -56,7 +56,8 @@ class AttendeesController < ApplicationController
     @doc = PdfDocument.new(cookies[:label_format].split('&'), cookies[:label_margins].split('&'), cookies[:label_font_size].to_i)
     @doc.create_label(@attendee, cookies[:qrcode].to_s, cookies[:label_contents].split('&'), cookies[:qrcode_contents].split('&'))
 
-    redirect_to root_path+"/public/uploads/labels/#{@attendee.to_param}.pdf"
+    # redirect_to root_path+"/public/uploads/labels/#{@attendee.to_param}.pdf"
+    redirect_to root_path+"uploads/labels/#{@attendee.to_param}.pdf"
     @attendee.update(printed: true)
   end
 
