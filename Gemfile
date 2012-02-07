@@ -56,6 +56,16 @@ gem 'prawn'
 gem 'prawn-qrcode'
 gem 'rqrcode'
 
+group :production do
+  gem 'therubyracer'
+end
+
+group :assets do
+  gem 'sass-rails',   "~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
+
 group(:development, :test) do
 
   # Uncomment this if you want to use rspec for testing your application
