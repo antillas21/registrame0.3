@@ -55,7 +55,7 @@ gem 'json_builder', '3.0.2'
 gem 'prawn'
 gem 'prawn-qrcode'
 gem 'rqrcode'
-gem 'munger', '0.0.2'
+gem "elskwid-munger", "~> 0.1.4.5"
 
 group(:development, :test) do
 

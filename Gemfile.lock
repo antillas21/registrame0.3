@@ -100,6 +100,7 @@ GEM
       dm-core (~> 1.2.0)
     do_mysql (0.10.7)
       data_objects (= 0.10.7)
+    elskwid-munger (0.1.4.5)
     erubis (2.7.0)
     factory_girl (2.1.2)
       activesupport
@@ -132,7 +133,6 @@ GEM
     mocha (0.10.0)
       metaclass (~> 0.0.1)
     multi_json (1.0.4)
-    munger (0.0.2)
     orm_adapter (0.0.5)
     pdf-reader (1.0.0)
       Ascii85 (~> 1.0.0)
@@ -226,13 +226,13 @@ DEPENDENCIES
   dm-transactions (~> 1.2.0)
   dm-types (~> 1.2.0)
   dm-validations (~> 1.2.0)
+  elskwid-munger (~> 0.1.4.5)
   factory_girl_rails
   haml
   haml-rails (~> 0.3.4)
   jquery-rails
   json_builder (= 3.0.2)
   mocha (~> 0.10.0)
-  munger (= 0.0.2)
   prawn
   prawn-qrcode
   rails (~> 3.1.1)
