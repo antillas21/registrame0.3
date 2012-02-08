@@ -117,3 +117,7 @@ ul.ui-autocomplete li a.ui-state-hover, ul.ui-autocomplete li a.ui-state-active 
   color: #fff;
   text-decoration: none;
 }
+
+.dataTables_paginate {
+  margin-bottom: 40px;
+}
