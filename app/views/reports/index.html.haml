@@ -1,0 +1,13 @@
+%div.report.well
+  %h1 Full Report Download
+  = link_to "Download Attendee Records (CSV file)", "#", class: "btn primary large"
+%div.statistics.page-header
+  %h2.page-title Statistics
+  %div
+    - if @country_report.present?
+      %h3 Total records by country
+      = @country_report.html_safe
+  %div
+    - if @state_report.present?
+      %h3 Total records by state
+      = @state_report.html_safe
