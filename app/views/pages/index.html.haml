@@ -1,2 +1,3 @@
 = @msg
-= cookies[:label_margins].class
+%div
+  = @state_report.html_safe if @state_report.present?
