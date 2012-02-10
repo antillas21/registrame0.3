@@ -121,3 +121,5 @@ ul.ui-autocomplete li a.ui-state-hover, ul.ui-autocomplete li a.ui-state-active 
 .dataTables_paginate {
   margin-bottom: 40px;
 }
+
+.report { text-align: center; }

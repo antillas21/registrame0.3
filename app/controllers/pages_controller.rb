@@ -17,6 +17,9 @@ class PagesController < ApplicationController
     end
   end
 
+  def statistics
+  end
+
   def companies_autocomplete
     @companies = Company.all(:name.like => "%#{params[:term]}%", order: [:name.asc])
     respond_with @companies.map(&:name)

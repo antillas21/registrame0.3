@@ -24,6 +24,7 @@ Registrame::Application.routes.draw do
   resources :preferences
   resources :states
   resources :countries
+  resources :reports
   resources :imports do
     member do
       post 'import'
@@ -32,6 +33,7 @@ Registrame::Application.routes.draw do
   end
 
   match 'pages/companies_autocomplete' => 'pages#companies_autocomplete', :as => :companies_autocomplete
+  match 'reports/export' => 'reports#export_csv', :as => :report_export
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

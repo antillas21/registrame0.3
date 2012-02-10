@@ -113,6 +113,7 @@ GEM
       dm-core (~> 1.2.0)
     do_mysql (0.10.7)
       data_objects (= 0.10.7)
+    elskwid-munger (0.1.4.5)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -262,6 +263,7 @@ DEPENDENCIES
   dm-transactions (~> 1.2.0)
   dm-types (~> 1.2.0)
   dm-validations (~> 1.2.0)
+  elskwid-munger (~> 0.1.4.5)
   factory_girl_rails
   haml
   haml-rails (~> 0.3.4)

@@ -1,0 +1,22 @@
+%div.report.well
+  %h1 Full Report Download
+  = link_to "Download Attendee Records (CSV file)", report_export_path, class: "btn primary large"
+%div.statistics
+  %h2.page-header
+    Statistics
+    %small for #{pluralize(@total_records, 'record')} total
+  %div
+    %h3 Total records by printed status
+    = @status_report.html_safe
+  %div
+    - if @at_type_report.present?
+      %h3 Total records by attendee type
+      = @at_type_report.html_safe
+  %div
+    - if @country_report.present?
+      %h3 Total records by country
+      = @country_report.html_safe
+  %div
+    - if @state_report.present?
+      %h3 Total records by state
+      = @state_report.html_safe
