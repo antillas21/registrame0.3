@@ -3,6 +3,8 @@
   %p= email_phone(@attendee)
   %p= @attendee.registration_type
   %p
+    = @attendee.job
+    %br/
     = @attendee.company_name
     %br/
     = address_data(@attendee)

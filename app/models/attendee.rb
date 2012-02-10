@@ -7,6 +7,7 @@ class Attendee
   property :last_name, String, :length => 80, :required => true, :index => [:full_name]
   property :email, String, :length => 80, :required => true, :unique => true, :index => true
   property :phone, String, :required => false
+  property :job, String, :length => 100
   property :address, String, :length => 100, :required => false
   property :city, String, :required => false, :index => [:city]
   property :printed, Boolean, :default => false, :index => true
