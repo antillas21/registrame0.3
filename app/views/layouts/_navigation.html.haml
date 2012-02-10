@@ -13,7 +13,7 @@
               %li= link_to "Preferences", preference_path(Preference.first)
           %li= link_to "Attendees", attendees_path
           %li= link_to "Companies", companies_path
-          %li= link_to "Reports", "#"
+          %li= link_to "Reports", reports_path
       %ul.nav.secondary-nav
         - if current_user
           %li{:class => "dropdown", :data => {:dropdown => "dropdown"}}
